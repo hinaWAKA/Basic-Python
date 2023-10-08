@@ -1,15 +1,17 @@
-
-# TODO
-#bが0になるまでaをbで割り続け、その都度aとbの値を更新。bが0になった時点でのaの値が、元のaとbの最大公約数。
-def compute_gcd(a, b):
-   
-    while b != 0:
-        a, b = b, a % b
-    return a
-
-# Given pairs of numbers
+#TODO
+# 与えられた数字のペア
 pairs = [(10, 20), (14, 91), (91, 14)]
 
-gcd_results_without_gcd_func = [compute_gcd(a, b) for a, b in pairs]
+# 各ペアに対してGCDを計算するための結果リストを初期化
+gcd_results = []
 
-print(gcd_results_without_gcd_func)
+# ペアリスト内の各ペアに対してループを実行
+for a, b in pairs:
+    # bが0でない間、ループを実行（ユークリッドの互除法）
+    while b != 0:
+        a, b = b, a % b
+    # ループが終了したら、gcd_resultsリストに結果（GCD）を追加
+    gcd_results.append(a)
+
+print(gcd_results)
+

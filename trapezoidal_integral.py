@@ -5,16 +5,19 @@ from math import sin
 # -----------
 import math
 
-# Define
-def f(x):
-    return math.sin(x)
-
+# 積分の範囲
 a = 0
 b = 1/(2*math.pi)
+
+# 台形の数
 N = 100
+
+# 台形の幅
 h = (b-a)/N
 
-# the trapezoidal(台形) rule formula
-I = 0.5*h*(f(a) + f(b) + 2*sum(f(a + k*h) for k in range(1, N)))
+# 台形積分法の公式
+# 関数 f(x) = sin(x) を直接記述し、a と b での関数の値を計算
+I = 0.5*h*(sin(a) + sin(b) + 2*sum(sin(a + k*h) for k in range(1, N)))
 
 print(I)
+

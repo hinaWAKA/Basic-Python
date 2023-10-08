@@ -1,18 +1,29 @@
-# TODO
-import math
-# 自然数nが素数であるかを判定するには、2からn^1/2までの範囲でnを割り切れる（割り算の余りが0である）数が存在しないことを確認。
-# この範囲を選ぶ理由は、もしnが素数でない自然数であるならば、その約数は少なくとも1つはn^1/2以下であるため。
-
-def is_prime(n):
-    if n <= 1:
-        return False
-    for i in range(2, math.isqrt(n) + 1):
-        if n % i == 0:
-            return False
-    return True
-
-# Check the given numbers
 num1, num2 = 61, 10
-is_prime_num1, is_prime_num2 = is_prime(num1), is_prime(num2)
+import math
+
+# TODO
+#num1 は素数であると仮定する
+is_prime_num1 = True
+
+#1以下の数は素数ではない
+#2からnum1の平方根までの各数iに対して、num1をiで割った余りが0であるか
+#余りが0である場合、num1はiで割り切れるので素数ではない
+if num1 <= 1:
+    is_prime_num1 = False
+else:
+    for i in range(2, math.isqrt(num1) + 1):
+        if num1 % i == 0:
+            is_prime_num1 = False
+            break
+
+#num2も同様
+is_prime_num2 = True
+if num2 <= 1:
+    is_prime_num2 = False
+else:
+    for i in range(2, math.isqrt(num2) + 1):
+        if num2 % i == 0:
+            is_prime_num2 = False
+            break
 
 print(is_prime_num1, is_prime_num2)
