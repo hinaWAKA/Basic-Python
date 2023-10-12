@@ -7,7 +7,7 @@ import math
 
 # 積分の範囲
 a = 0
-b = 1/(2*math.pi)
+b = math.pi / 2
 
 # 台形の数
 N = 100
