@@ -34,10 +34,3 @@ def f3(x):
 
 result3 = trapezoidal_integral(f3, -100, 100, 1000)
 print("(3):", result3)
-
-
-
-
-
-
-

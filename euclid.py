@@ -39,4 +39,3 @@ def coprime_prob(num_samples):
 
 num_samples = 100000  # サンプル数を設定
 print(f"エクストラ問題の答え： {coprime_prob(num_samples)}")
-

@@ -1,6 +1,6 @@
 import math
 
-def is_prime(n):
+def prime(n):
     if n <= 1:
         return False
     m = 2
@@ -16,6 +16,6 @@ try:
     if n <= 0:
         raise ValueError('自然数を入力してください')
     
-    print(is_prime(n))
+    print(prime(n))
 except ValueError as e:
     print(e)
