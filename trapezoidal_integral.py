@@ -1,23 +1,43 @@
-from math import sin
-# --example--
-# print(sin(0))
-# >>> 0
-# -----------
 import math
 
-# 積分の範囲
-a = 0
-b = 1/(2*math.pi)
+def trapezoidal_integral(f, a=0, b=1, n=100):
+    # 区間幅を計算
+    h = (b - a) / n
+    
+    # 台形積分の初期値
+    integral = 0.5 * (f(a) + f(b))
+    
+    # 区間内の中間点で関数を評価して積分値に加える
+    for i in range(1, n):
+        x_i = a + i * h
+        integral += f(x_i)
+    
+    # 最終的な積分値を計算
+    integral *= h
+    
+    return integral
 
-# 台形の数
-N = 100
+# (1) 
+result1 = trapezoidal_integral(math.sin, 0, math.pi / 2, 50)
+print("(1):", result1)
 
-# 台形の幅
-h = (b-a)/N
+# (2) 
+def f2(x):
+    return 4 / (1 + x**2)
 
-# 台形積分法の公式
-# 関数 f(x) = sin(x) を直接記述し、a と b での関数の値を計算
-I = 0.5*h*(sin(a) + sin(b) + 2*sum(sin(a + k*h) for k in range(1, N)))
+result2 = trapezoidal_integral(f2, 0, 1, 100)
+print("(2):", result2)
 
-print(I)
+# (3) 
+def f3(x):
+    return math.sqrt(math.pi) * math.exp(-x**2)
+
+result3 = trapezoidal_integral(f3, -100, 100, 1000)
+print("(3):", result3)
+
+
+
+
+
+
 
