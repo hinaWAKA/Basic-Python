@@ -1,8 +1,3 @@
-from math import sin
-# --example--
-# print(sin(0))
-# >>> 0
-# -----------
 import math
 
 # 積分の範囲
